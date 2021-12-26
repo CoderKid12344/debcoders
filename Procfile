@@ -1,1 +1,1 @@
-web: waitress-serve --host=debcoders.herokuapp.com --port=$PORT debcoders.wsgi:application
+web: waitress-serve --port=$PORT debcoders.wsgi:application
