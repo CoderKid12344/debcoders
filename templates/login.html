@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock title %}
+{% block loginactive %} active {% endblock loginactive %}
+
+{% block body %}
+
+<div class="container my-3">
+    <h1 class="text-center">Login Here</h1>
+    <form action="/login" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Login</button>
+    </form>
+    <a href="/register" class="my-2">Dont Have An Account? Create One</a>
+</div>
+
+{% endblock body %}

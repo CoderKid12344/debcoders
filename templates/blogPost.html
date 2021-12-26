@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} {{blog.title}} {% endblock title %}
+
+{% block body %}
+{% load humanize %}
+
+<div class="container my-3">
+    <div class="fb-like" data-href="http://127.0.0.1:8000/blogPost/{{blog.slug}}" data-width="" data-layout="standard"
+        data-action="like" data-size="large" data-share="true"></div>
+    <h2 class="blog-post-title">{{blog.title}}</h2>
+    <p class="blog-post-meta">{{blog.timestamp|naturaltime}}</p>
+    <p>{{blog.desc|safe}}</p>
+    <hr>
+</div>
+<div class="container">
+    <h1 class="text-center">Comments</h1>
+    <div class="fb-comments" data-href="http://127.0.0.1:8000/blogPost/{{blog.slug}}" data-width="" data-numposts="5">
+    </div>
+</div>
+<script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v12.0&appId=456039802619081&autoLogAppEvents=1"
+    nonce="r43IkHN9"></script>
+{% endblock body %}

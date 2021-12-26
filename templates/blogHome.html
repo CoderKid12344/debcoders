@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %} Blogs {% endblock title %}
+{% block blogactive %} active {% endblock blogactive %}
+{% load humanize %}
+{% block body %}
+<div class="container my-2">
+    <h2>BlogPosts By DebCoders:</h2>
+    {% for blog in blogs %}
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">{{blog.category}}</strong>
+            <h3 class="mb-0">{{blog.title}}</h3>
+            <div class="mb-1 text-muted">{{blog.timestamp}}</div>
+            <p class="card-text mb-auto">{{blog.desc|truncatechars:500}}</p>
+            <a href="/blogPost/{{blog.slug}}" class="stretched-link">Countinue Reading</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock body %}

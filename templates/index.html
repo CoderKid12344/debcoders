@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock title %}
+
+{% block homeactive %} active {% endblock homeactive %}
+
+{% block body %}
+
+<div class="container py-4">
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            {% if request.user.is_authenticated %}
+            <h1 class="display-5 fw-bold">Welcome {{request.user}} to DebCoders!</h1>
+            <p class="col-md-8 fs-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dolor accusamus ab!
+                Hic vel quam accusantium nobis quia cumque soluta accusamus aut eum non molestiae, enim voluptatum quod
+                odio quibusdam.</p>
+            {% else %}
+            <h1 class="display-5 fw-bold">Welcome Guest to DebCoders!</h1>
+            <p class="col-md-8 fs-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dolor accusamus ab!
+                Hic vel quam accusantium nobis quia cumque soluta accusamus aut eum non molestiae, enim voluptatum quod
+                odio quibusdam.</p>
+            {% endif %}
+            <a class="btn btn-primary btn-lg" type="button" href="/blogHome">Go To Blog Home Page
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container my-2">
+    <h2>New BlogPost:</h2>
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">Category</strong>
+            <h3 class="mb-0">Featured post</h3>
+            <div class="mb-1 text-muted">Dec 25</div>
+            <p class="card-text mb-auto">This is a very good post in the best of the merry cristmas! Please Go!</p>
+            <a href="" class="stretched-link">Countinue Reading</a>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
