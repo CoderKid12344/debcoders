@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT debcoders.wsgi:application
+web: gunicorn debcoders.wsgi
