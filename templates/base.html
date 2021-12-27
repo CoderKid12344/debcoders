@@ -50,7 +50,7 @@
                         <a class="nav-link {% block blogactive %} {% endblock blogactive %}" href="/blogHome">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact Us</a>
+                        <a class="nav-link {% block contactactive %} {% endblock contactactive %}" href="/contact">Contact Us</a>
                     </li>
                     {% if user.is_authenticated %}
                     {% else %}

@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import redirect, render, HttpResponse
-from .models import Blog
+from .models import Blog, Contact
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db.utils import IntegrityError
@@ -92,3 +92,6 @@ def search(request):
         blogs = blogsTitle.union(blogsDesc, blogsCategory)
     params = {'query': query, 'blogs': blogs}
     return render(request, "search.html", params)
+
+def contact(request):
+    return render(request, "contact.html")
