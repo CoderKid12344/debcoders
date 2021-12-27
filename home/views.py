@@ -94,4 +94,22 @@ def search(request):
     return render(request, "search.html", params)
 
 def contact(request):
-    return render(request, "contact.html")
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            email = request.user.email
+            username = request.user
+            content = request.POST['content']
+
+            contact_model = Contact(
+                email=email,
+                username=username,
+                query=content,
+            )
+            contact_model.save()
+            messages.success(request, "Query Submitted!")
+            return redirect('/')
+
+        return render(request, "contact.html")
+    else:
+        messages.warning(request, "Please login to contact us!")
+        return redirect("login")
